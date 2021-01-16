@@ -2,3 +2,4 @@
   remote_user: Kiran
   become: yes
   tasks: 
+     - name: install httpd 
