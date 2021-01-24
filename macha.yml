@@ -1,0 +1,5 @@
+- hosts: server2.abc.com
+  remote_user: Kiran
+  become: yes
+  tasks:
+      - name: install macha package
