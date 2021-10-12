@@ -1,5 +1,24 @@
 - hosts: server2.abc.com
-  remote_user: Kiran
+  remote_user: ManUnited
   become: yes
-  tasks:
-      - name: install macha package
+  vars: 
+      region: "us-west" 
+      instance_type: "t2.micro"
+      ami: "013a129d325529d4d"
+      keypair: EC2
+  tasks: 
+      - name: Create EC2 instance
+        ec2: 
+          aws_secret_key: "AKIAXOVJN5K75NBCXR42"
+          aws_access_key: "lzuRvPPsnoXwTidUPoqukt1C2RTWUB/hBPxVYrTl"
+          key_name: EC2
+          group: "devops@team"
+          instance_type: "t2.micro"
+          image: "Amazon Linux"
+          wait:
+          region: "us-west"
+          count: 1
+          vpc_id: "0623fbc3fc89436bd"
+          vpc_subnet_id: "01f29b614335facb6"
+#         assign_public_ip:
+        register: ec2        
